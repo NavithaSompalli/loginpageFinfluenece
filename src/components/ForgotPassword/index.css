@@ -1,0 +1,85 @@
+.forgot-bg-container{
+    /*background-color: #7241cc;
+    background-image: linear-gradient(to right, #7858a6,#10081c); */
+    
+    background-color: #2e2e38;
+    border-radius: 30px;
+   
+    position: relative;
+    overflow: hidden;
+    width: 608px;
+    max-width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
+
+.forgot-mainheading{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.input-element-container{
+    margin:5px;
+}
+
+.email-label-element{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.head-line{
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff; 
+    margin-bottom: 10px;
+
+}
+
+#email-input-element{
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding:5px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none; 
+    width:300px;
+    border:none;
+
+}
+
+.reset-button{
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    cursor: pointer; 
+}
+
+.email-input-element{
+    background-color: #eee;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.emai-icon{
+    margin-right:5px;
+    font-size: 20px;
+    margin-top:5px;
+}
+
+
+  
