@@ -92,10 +92,7 @@ class LoginRoute extends Component{
       onClickEyeIconSignUp = () =>{
         this.setState(prevState =>({isShowPasswordSignUp: !prevState.isShowPasswordSignUp}))
       }
-
-
-     
-
+ 
     render(){
         const {isActiveContainer,errorMsgName,errorMsgEmail,errorMsgPassword,errorMsgSigninPassword,errorMsgSigninEmail,isShowPasswordSignIn,isShowPasswordSignUp} = this.state 
         const className = isActiveContainer ? 'container active' : 'container ';
@@ -152,7 +149,7 @@ class LoginRoute extends Component{
                             </div>
                         <Link to="/forgot" className="forgot-passsword">Forget Your Password?</Link>
                     </div>
-                    <button className='sign-in-button'>Sign In</button>
+                    <Link to="/dashboard"><button className='sign-in-button'>Sign In</button></Link>
                 </form>
             </div>
             <div className="toggle-container">

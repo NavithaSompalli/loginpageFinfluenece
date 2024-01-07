@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import {Link} from 'react-router-dom'
+
 import { FaEyeSlash } from "react-icons/fa";
 
 import { IoEyeSharp } from "react-icons/io5";
@@ -69,7 +71,7 @@ const ResetPassword = () => {
       </div>
       <button type="submit" className='reset-button-password'>Reset password</button>
       </form>
-      <button type="button" className='back-btn'> <FaArrowLeft className='arrow'/>Back to Login</button>
+      <Link to='/login'><button type="button" className='back-btn'> <FaArrowLeft className='arrow'/>Back to Login</button></Link>
     </div>
   );
 };

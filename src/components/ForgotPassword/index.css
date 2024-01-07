@@ -2,7 +2,7 @@
     /*background-color: #7241cc;
     background-image: linear-gradient(to right, #7858a6,#10081c); */
     
-    background-color: #2e2e38;
+    background: linear-gradient(to right, #561159, #7241cc);
     border-radius: 30px;
    
     position: relative;
@@ -60,7 +60,6 @@
     color: #ffffff;
     font-size: 12px;
     padding: 10px 45px;
-    border: 1px solid #ffffff;
     border-radius: 8px;
     font-weight: 600;
     letter-spacing: 0.5px;

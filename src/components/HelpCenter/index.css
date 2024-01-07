@@ -1,0 +1,57 @@
+.learning-res-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: transparent;
+    width: 80%;
+    height: 105vh;
+    background-size: cover;
+    padding: 10px;
+    overflow: auto;
+}
+
+
+.learning-options-container{
+    width: 100vh;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
+    list-style-type: none;
+    align-self: center;
+    margin-top: 40px;
+    
+   
+    }
+    
+    .active-help-tab-item{
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-family: "Roboto";
+        font-size: 15px;
+        font-weight: Bold;
+        color:#ffffff;
+        background-color: #327da8;
+        border-radius:5px;
+        padding:10px;
+    }
+    
+    .help-tab-item{
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-family: "Roboto";
+        font-size: 15px;
+        font-weight: Bold;
+        
+        padding:10px;
+        border-radius: 5px;
+        color: #ffffff;
+        background-color: #6d757a;
+    }
+    
+    .active-tab-container{
+        margin-left:50px;
+    }
