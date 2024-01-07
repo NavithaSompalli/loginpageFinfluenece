@@ -184,7 +184,7 @@ class EducationalResources extends Component{
 
         return(
             <div className="edu-bg-container">
-                <div className="dash-board-container">
+                <div className="dash-board-container resize horizontal vertical both">
                     <p className="user-name">User Name</p>  
                     <button className="profile-pic-container">
                         <FaUserCircle className="user-icon"/>

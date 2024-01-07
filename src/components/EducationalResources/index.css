@@ -118,3 +118,20 @@ margin-left: 35px;
   
 }
 
+.resize.horizontal {
+    resize: horizontal;
+    height: 105%;
+    cursor: w-resize;
+    position: absolute;
+    left: 0;
+    width: 4px;
+  }
+
+  
+  
+  .welcome-msg{
+    text-align: center;
+    color:#ffffff;
+    margin-top: 40px;
+  }
+  
