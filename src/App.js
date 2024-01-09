@@ -5,6 +5,7 @@ import ForgotPassword from './components/ForgotPassword'
 import ResetPasswordRoute from './components/ResetPasswordRoute';
  import EducationalResources from './components/EducationalResources';
 
+
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <Route path='/login' component = {LoginRoute}/>
     <Route path='/forgot' component = {ForgotPassword}/>
     <Route path='/reset' component={ResetPasswordRoute}/>
+   
     </Switch>
     
    </BrowserRouter>

@@ -8,6 +8,7 @@
 body {
    
     background-color: #000000;
+    background-color: #101624;
    /* background-image: linear-gradient(to right,#000000, #ababba); */
     display: flex;
     align-items: center;
@@ -189,6 +190,7 @@ body {
     background-color: orange;
     height: 100%;
     background: linear-gradient(to right, #561159, #7241cc);
+   
     color: #fff;
     position: relative;
     left: -100%;
