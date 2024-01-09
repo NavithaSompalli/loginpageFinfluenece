@@ -1,5 +1,5 @@
 import { Component } from "react" 
-import {Link} from 'react-router-dom'
+
 
 // import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
@@ -27,7 +27,7 @@ class EducationalResources extends Component{
         isAdoptationActive:false,
         isAccountSettingActive:false,
         isAlertsActive:false,
-        isDashboard:true,
+       
     } 
 
     onClickEduResource = () =>{
@@ -40,7 +40,7 @@ class EducationalResources extends Component{
         this.setState({isAccountSettingActive:false})   
         this.setState({isSupAndAssActive:false})   
         this.setState({isAlertsActive:false}) 
-        this.setState({isDashboard:false})
+        
     }
 
 
@@ -90,7 +90,7 @@ class EducationalResources extends Component{
         this.setState({isAccountSettingActive:false})
         this.setState({isEduResActive:false})
         this.setState({isAlertsActive:false})
-        this.setState({isDashboard:false})
+        
 
     }
 
@@ -105,7 +105,7 @@ class EducationalResources extends Component{
         this.setState({isAdoptationActive:false})
         this.setState({isResearchActive: false})
         this.setState({isAccountSettingActive:false})
-        this.setState({isDashboard:false})
+       
     }
 
     onClickCustomerSupport = () =>{
@@ -119,7 +119,7 @@ class EducationalResources extends Component{
         this.setState({isAdoptationActive:false})
         this.setState({isResearchActive: false})
         this.setState({isAccountSettingActive:false})
-        this.setState({isDashboard:false})
+        
     }
 
     onClickAiTradingInterface = ()=>{
@@ -136,7 +136,7 @@ class EducationalResources extends Component{
         this.setState({isSupAndAssActive:false})  
         this.setState({isEduResActive:false})
         this.setState({isAlertsActive:false})
-        this.setState({isDashboard:false})
+       
     }
 
     onClickCustomStratagies = () =>{
@@ -153,7 +153,7 @@ class EducationalResources extends Component{
         this.setState({isSupAndAssActive:false})  
         this.setState({isEduResActive:false})
         this.setState({isAlertsActive:false})
-        this.setState({isDashboard:false})
+        
     }
 
     onClickAnalyticsAndReports = () =>{
@@ -170,7 +170,7 @@ class EducationalResources extends Component{
         this.setState({isSupAndAssActive:false})  
         this.setState({isEduResActive:false})
         this.setState({isAlertsActive:false})
-        this.setState({isDashboard:false})
+       
     }
 
     onClickAiLearningAndAdoption = () =>{
@@ -187,7 +187,7 @@ class EducationalResources extends Component{
         this.setState({isSupAndAssActive:false})  
         this.setState({isEduResActive:false})
         this.setState({isAlertsActive:false})
-        this.setState({isDashboard:false})
+       
     }
      
     onClickReseachAndTools = () =>{
@@ -204,7 +204,7 @@ class EducationalResources extends Component{
         this.setState({isSupAndAssActive:false}) 
         this.setState({isEduResActive:false}) 
         this.setState({isAlertsActive:false})
-        this.setState({isDashboard:false})
+        
     }
 
     onclickAccountAndSetting = () =>{
@@ -221,7 +221,7 @@ class EducationalResources extends Component{
         this.setState({isSupAndAssActive:false})  
         this.setState({isEduResActive:false})
         this.setState({isAlertsActive:false})
-        this.setState({isDashboard:false})
+        
     }
 
     onClickAlertsNotifications = () =>{
@@ -238,7 +238,7 @@ class EducationalResources extends Component{
         this.setState({isCommunityActive:false})
         this.setState({isSupAndAssActive:false})  
         this.setState({isEduResActive:false})
-        this.setState({isDashboard:false})
+        
     }
 
 
@@ -251,9 +251,9 @@ class EducationalResources extends Component{
             <div className="edu-bg-container">
                 <div className="dash-board-container resize horizontal vertical both">
                     <p className="user-name">User Name</p>  
-                    <Link to='/profile'><button className="profile-pic-container">
+                    <button className="profile-pic-container">
                         <FaUserCircle className="user-icon"/>
-                    </button></Link>
+                    </button>
                     <button className={isAiTradingInterfaceActive?"edu-main-heading-active edu-main-heading":"edu-main-heading"} type="button" onClick={this.onClickAiTradingInterface}>AI Trading Interface </button>
                     
                     <button className={isCustomStatagyActive?"edu-main-heading-active edu-main-heading":"edu-main-heading"} type="button" onClick={this.onClickCustomStratagies}>Custom Strategy Configuration</button>
