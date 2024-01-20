@@ -45,7 +45,7 @@ const OtpGenerator = () => {
         ))}
         <br/>
 
-            <button className="active">verify OTP</button>
+            <button className="verify-otp-btn">verify OTP</button>
             <button className="Royal">Resend OTP</button>
       </form>
     </div>

@@ -39,7 +39,7 @@
     color: white;
 }
 
-.active{
+.verify-otp-btn{
     margin-top: 25px;
     width: 170px;
     background-color: #7241cc;
@@ -90,3 +90,4 @@
     font-size: 20px;;
     margin-bottom: 10px;
 }
+
