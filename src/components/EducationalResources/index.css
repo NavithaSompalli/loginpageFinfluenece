@@ -16,7 +16,6 @@
     background-color: blueviolet;
     /* background: linear-gradient(to left, #561159,#561159); */
    /* background: -webkit-linear-gradient(#561159,#561159); */
-    opacity:0.1;
     min-width:22%;
     padding-left:20px;
     height: 210%;
@@ -29,6 +28,7 @@
     overflow-y: auto;
     margin:5px;
     flex-grow: 0;
+    opacity: 0.7;
 }
 
 .edu-main-heading{

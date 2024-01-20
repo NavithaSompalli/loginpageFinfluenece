@@ -10,10 +10,10 @@ body {
     background-color: #000000;
     background-color: #101624;
    /* background-image: linear-gradient(to right,#000000, #ababba); */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
     height: 100vh;
 }
 
@@ -61,6 +61,8 @@ body {
     margin-top: 10px;
     cursor: pointer;
 }
+
+
 .hidden {
     background-color: transparent;
     border-color: #fff; 
