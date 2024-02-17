@@ -1,4 +1,5 @@
 import {Component} from 'react' 
+import Cookies from 'js-cookie'
 
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -24,7 +25,20 @@ class LoginRoute extends Component{
         errorMsgSigninEmail:'',
         errorMsgSigninPassword:'',
         isShowPasswordSignIn: false,
-        isShowPasswordSignUp:false,
+        isShowPasswordSignUp:false, 
+        email:'',
+        password:'',
+        username:'',
+        signUpEmail:'',
+        signUpPassword:'',
+    }
+
+    onChangeEmail = event =>{
+        this.setState({email: event.target.value})
+    }
+
+    onChangePassword = event =>{
+        this.setState({password:event.target.value})
     }
     
     onClickSignUp = () =>{
@@ -35,46 +49,7 @@ class LoginRoute extends Component{
         this.setState({isActiveContainer:false})
     }
 
-    onBlurUsername = (event) =>{
-        if(event.target.value === ''){
-        this.setState({errorMsgName: "Required"})
-        }else{
-            this.setState({errorMsgName: ''})   
-        }
-    }
-
-    onBlurEmail = (event) =>{
-        if(event.target.value === ''){
-        this.setState({errorMsgEmail: "Required"})
-        }else{
-            this.setState({errorMsgEmail: ''})   
-        }
-    }
-
-    onBlurPassword = (event) =>{
-        if(event.target.value === ''){
-        this.setState({errorMsgPassword: "Required"})
-        }else{
-            this.setState({errorMsgPassword: ''})   
-        }
-    }
-
-    onBlurEmailSignin = (event) =>{
-        if(event.target.value === ''){
-        this.setState({errorMsgSigninEmail: "Required"})
-        }else{
-            this.setState({errorMsgSigninEmail: ''})   
-        }
-    }
-
-    onBlurPasswordSignin = (event) =>{
-        if(event.target.value === ''){
-        this.setState({errorMsgSigninPassword: "Required"})
-        }else{
-            this.setState({errorMsgSigninPassword: ''})   
-        }
-    }
-
+   
     onClickEyeIcon = () =>{
         this.setState(prevState =>({isShowPasswordSignIn: !prevState.isShowPasswordSignIn}))
     }
@@ -92,14 +67,149 @@ class LoginRoute extends Component{
       onClickEyeIconSignUp = () =>{
         this.setState(prevState =>({isShowPasswordSignUp: !prevState.isShowPasswordSignUp}))
       }
- 
+
+      onChangeUsername = event =>{
+        this.setState({username:event.target.value})
+      }
+
+      onChangeEmailSignup = event =>{
+        this.setState({signUpEmail:event.target.value})
+      }
+      
+      onchangeSignUpPassword = event =>{
+        this.setState({signUpPassword:event.target.value})
+      }
+
+      onSubmitSuccess = jwtToken => {
+        const {history} = this.props
+        Cookies.set('jwt_token', jwtToken, {expires: 30, path: '/'})
+        history.replace('/')
+      }
+
+      onSubmitFailure = errorMsg => {
+        alert(errorMsg)
+      }
+    
+      
+      // SignIn Api Integration
+      onSubmitSignInForm = async(event) =>{
+        event.preventDefault();
+    
+        const {email,password} = this.state 
+        console.log(email,password)
+        const data = {email:email, password:password}
+        const signInApi = 'http://127.0.0.1:8000/api/users/login';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+        }
+        if(email === '' && password === ''){
+            this.setState({errorMsgSigninEmail: "Email is not empty"})
+            this.setState({errorMsgSigninPassword: "Password is not empty"})
+        }else if(email !== '' && password === ''){
+            this.setState({errorMsgSigninPassword: "Password is not empty"})
+            this.setState({errorMsgSigninEmail: ''})  
+        }else if(email === '' && password !== ''){
+            this.setState({errorMsgSigninEmail: "Email is not empty"})
+            this.setState({errorMsgSigninPassword: ''})  
+        }
+        else{
+            try{
+                const response = await fetch(signInApi, options)
+                const data = await response.json()
+                console.log(data) 
+                if(response.status === 200){
+                    console.log("Authentication successful. Redirecting in 2 seconds...");
+                    console.log(data.token.access_token)
+                    this.onSubmitSuccess(data.token.access_token)
+                }else{ 
+                    this.onSubmitFailure(data.detail)
+                }
+                }catch(error){
+                     alert("Wrong Credentials received");
+            }
+        }
+      }
+
+      //SignUp Api Integration 
+
+      onSubmitSignUpForm = async(event) =>{
+        event.preventDefault();
+    
+        const {signUpEmail,signUpPassword,username} = this.state 
+        console.log(signUpEmail,signUpPassword,username)
+        const data = 
+        {
+            "username": username,
+            "email": signUpEmail,
+            "password": signUpPassword
+          }
+        const signInApi = 'http://127.0.0.1:8000/api/users/register';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+        }
+        if(signUpEmail === '' && signUpPassword === '' && username === ''){ 
+            this.setState({errorMsgName:'username is not empty'})
+            this.setState({errorMsgEmail: "Email is not empty"})
+            this.setState({errorMsgPassword: "Password is not empty"})
+        }else if(signUpEmail !== '' && signUpPassword === '' && username === ''){
+            this.setState({errorMsgName:'username is not empty'})
+            this.setState({errorMsgEmail: ""})
+            this.setState({errorMsgPassword: "Password is not empty"})  
+        }else if(signUpEmail === '' && signUpPassword !== '' && username === ''){
+            this.setState({errorMsgName:'username is not empty'})
+            this.setState({errorMsgEmail: "Email is not empty"})
+            this.setState({errorMsgPassword: ""}) 
+            
+        }else if(signUpEmail !== '' && signUpPassword !== '' && username === ''){
+            this.setState({errorMsgName:'username is not empty'})
+            this.setState({errorMsgEmail: ""})
+            this.setState({errorMsgPassword: ""})
+        }else if(signUpEmail === '' && signUpPassword !== '' && username !== ''){
+            this.setState({errorMsgName:''})
+            this.setState({errorMsgEmail: "Email is not empty"})
+            this.setState({errorMsgPassword: ""})
+        }else if(signUpEmail !== '' && signUpPassword === '' && username !== ''){
+            this.setState({errorMsgName:''})
+            this.setState({errorMsgEmail: ""})
+            this.setState({errorMsgPassword: "Password is not empty"})
+        }else{
+            try{
+                const response = await fetch(signInApi, options) 
+                this.setState({errorMsgName:''})
+                this.setState({errorMsgEmail: ""})
+                this.setState({errorMsgPassword: ""}) 
+                const data = await response.json()
+                const msg = await data.msg
+            
+                
+                if(response.status === 200 && msg !== "user already exist"){
+                    console.log("Autharization successful. Redirecting in 2 seconds...");
+                     
+                }else{
+                    throw new Error('user already exist'); 
+                }
+                }catch(error){
+                console.log("user already exist");
+            }
+        }
+      }
     render(){
-        const {isActiveContainer,errorMsgName,errorMsgEmail,errorMsgPassword,errorMsgSigninPassword,errorMsgSigninEmail,isShowPasswordSignIn,isShowPasswordSignUp} = this.state 
+        const {isActiveContainer,errorMsgName,errorMsgEmail,errorMsgPassword,errorMsgSigninPassword,errorMsgSigninEmail,isShowPasswordSignIn,isShowPasswordSignUp,email,password} = this.state 
         const className = isActiveContainer ? 'container active' : 'container ';
+        
         return(
+            <section className='login-bg-container'>
             <div className={className} id="container">
                 <div className="form-container sign-up">
-                    <form>
+                    <form onSubmit={this.onSubmitSignUpForm}>
                         <h1>Create Account</h1>
                         <div className="social-icons">
                             <button className="icon" onClick={() => this.login}><FcGoogle/></button>
@@ -115,19 +225,19 @@ class LoginRoute extends Component{
                             <button className="icon"><FaLinkedinIn/></button>
                         </div>
                         <span>or use your email for registeration</span>
-                        <input type="text" placeholder="Name" onBlur={this.onBlurUsername}/> 
+                        <input type="text" placeholder="Name" onBlur={this.onBlurUsername} onChange={this.onChangeUsername} name="username"/> 
                         <span className='errorMsg'>{errorMsgName}</span>
-                        <input type="email" placeholder="Email" onBlur={this.onBlurEmail}/>
+                        <input type="email" placeholder="Email" onBlur={this.onBlurEmail} onChange={this.onChangeEmailSignup} name="email"/>
                         <span className='errorMsg'>{errorMsgEmail}</span>
                         <div className='password-container'>
-                            <input type={isShowPasswordSignUp?'text':"password"} placeholder="Password" onBlur={this.onBlurPassword}/><button type="button" onClick={this.onClickEyeIconSignUp} className='eye-icon'>{isShowPasswordSignUp?<IoEyeSharp/>:<FaEyeSlash/>}</button>
+                            <input type={isShowPasswordSignUp?'text':"password"} placeholder="Password" onBlur={this.onBlurPassword} onChange={this.onchangeSignUpPassword} name="password"/><button type="button" onClick={this.onClickEyeIconSignUp} className='eye-icon'>{isShowPasswordSignUp?<IoEyeSharp/>:<FaEyeSlash/>}</button>
                         </div>
                         <span className='errorMsg'>{errorMsgPassword}</span>
-                        <button onSubmit={this.onSubmitSignUpForm} className='sign-in-button'>Sign Up</button>
+                        <button type="submit" className='sign-in-button'>Sign Up</button>
                     </form>
                 </div>
-                <div class="form-container sign-in">
-                    <form>
+                <div className="form-container sign-in">
+                    <form onSubmit={this.onSubmitSignInForm}>
                         <h1>Sign In</h1>
                         <div className="social-icons">
                             <button className="icon" onClick={() => this.login}><FcGoogle/></button>
@@ -136,10 +246,10 @@ class LoginRoute extends Component{
                             <button className="icon"><FaLinkedinIn/></button>
                         </div>
                         <span>or use your email password</span>
-                        <input type="email" placeholder="Email" onBlur={this.onBlurEmailSignin}/>
+                        <input type="email" placeholder="Email" onBlur={this.onBlurEmailSignin} onChange={this.onChangeEmail} value={email} name="email"/>
                         <span className='errorMsg'>{errorMsgSigninEmail}</span>
                         <div className='password-container'>
-                            <input type={isShowPasswordSignIn?'text':"password"} placeholder="Password" onBlur={this.onBlurPasswordSignin}/><button type="button" onClick={this.onClickEyeIcon} className='eye-icon'>{isShowPasswordSignIn?<IoEyeSharp/>:<FaEyeSlash/>}</button>
+                            <input type={isShowPasswordSignIn?'text':"password"} name="password" placeholder="Password" onBlur={this.onBlurPasswordSignin} onChange={this.onChangePassword} value={password}/><button type="button" onClick={this.onClickEyeIcon} className='eye-icon'>{isShowPasswordSignIn?<IoEyeSharp/>:<FaEyeSlash/>}</button>
                         </div>
                         <span className='errorMsg'>{errorMsgSigninPassword}</span> 
                         <div className='check-box-container'>
@@ -149,7 +259,7 @@ class LoginRoute extends Component{
                             </div>
                         <Link to="/forgot" className="forgot-passsword">Forget Your Password?</Link>
                     </div>
-                    <Link to="/dashboard"><button className='sign-in-button'>Sign In</button></Link>
+                    <button type="submit" className='sign-in-button'>Sign In</button>
                 </form>
             </div>
             <div className="toggle-container">
@@ -166,7 +276,8 @@ class LoginRoute extends Component{
                     </div>
                 </div>
             </div>
-        </div>)
+        </div>
+        </section>)
     }
 }
 

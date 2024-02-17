@@ -1,0 +1,368 @@
+/* Navbar.css */
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: none;
+    
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .menu {
+    display: flex;
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    display: none;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+  }
+  
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: #333;
+      box-sizing: border-box;
+      margin-top: 18px;
+    }
+  
+    .menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      display: block;
+    }
+  
+    .navbar {
+      background-color: blueviolet;
+      color: #fff;
+      padding: 10px;
+      display: block;
+      height: 13.5vh;
+      
+      
+    }
+    
+    
+  
+    .menu.open {
+      display: flex;
+    }
+  
+    .hamburger-menu {
+      display: flex;
+    }
+  
+    .bg-container{
+       display: none;
+    }
+  
+    .edu-main-heading{
+      color: #FFF;
+      font-family: "Roboto";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      height: 15px;
+      margin-top:10px;
+      margin-bottom: 10px;
+      margin-left:10px;
+      border: 1px solid #101624;
+      height:40px;
+     
+      }
+      
+      .edu-main-heading-active{
+        height:40px;
+        background-color: #101624;
+        padding-right: 10px;
+        padding-left: 3px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+    
+      .sign-out-btn{
+        background-color: transparent;
+        border:none;
+        font-family: "roboto";
+        font-size:20px;
+        color:#ffffff;
+        margin-top: 15px;
+        margin-left: 10px;
+      }
+  
+      .content-bg-sm-container{
+        display: block;
+        background-color: transparent;
+        height: 100vh;
+        
+      }
+  
+      .main-heading{
+        color: #ffffff;
+        
+      }
+  
+      .container-content {
+        margin-left: 250px; /* Adjust this value based on your dashboard width */
+        transition: margin-left 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: transparent;
+        height:100vh;
+        width: 100%;
+      }
+
+      .dashboard-sm-container{
+        background-color: #C71585;
+        height:100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+    
+      
+  }
+  
+  
+  
+  @media (min-width: 768px){
+  .bg-container{
+    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: space-between;
+    height:100vh;
+  }
+  
+  .content-bg-sm-container{
+    display: none;
+  }
+  
+  .dash-board-container.open{
+    left:0;
+    
+  }
+  .dashboard {
+    width: 255px;
+    height: 100%;
+    background-color: blueviolet;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .dashboard.closed {
+    width: 0;
+    display: none;
+  }
+  
+  .container-content {
+    margin-left: 250px; /* Adjust this value based on your dashboard width */
+    transition: margin-left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #363836;
+    height:100vh;
+    width: 100%;
+   
+    
+  }
+  
+  .container-content.dashboard-open {
+    margin-left: 250px;
+  }
+  
+  .container-content.dashboard-closed {
+    margin-left: 0;
+  }
+  
+  .profile-pic-container{
+    background-color: #ffffff;
+    height:70px;
+    width:70px;
+    border-radius: 200%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:40px;
+    border:1px solid #313045;
+  }
+  
+  .user-icon{
+    font-size: 50px;
+  }
+  
+  .user-name{
+    color:#ffffff;
+    height:20px;
+    margin-top: 30px;
+    margin-left: 40px;   
+  }
+  
+  .edu-main-heading{
+    color: #FFF;
+    font-family: "Roboto";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 15px;
+    margin-top:10px;
+    margin-bottom: 10px;
+    margin-left:10px;
+    cursor: pointer;
+    height: 35px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #C71585 ;
+    
+   
+    }
+
+    .edu-main-heading:hover{
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size:16px;
+      height: 40px;
+    }
+    
+    .edu-main-heading-active{
+      height:40px;
+      background-color: #101624;
+      padding-right: 10px;
+      padding-left: 3px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  
+    .sign-out-btn{
+      background-color: #313045;
+      border:none;
+      font-family: "roboto";
+      font-size:20px;
+      color:#ffffff;
+      margin-top: 15px;
+      margin-left: 10px;
+    
+      height: 40px;
+      width: 100px;
+      border-radius: 10px;
+    }
+  
+    .content-bg-container{
+      background-color: #313045;
+      width:100%;
+    }
+  
+    .dash-board-container {
+      transition: width 0.3s ease-in-out; /* Transition for width property */
+    }
+    
+    /* Adjust the width when the dashboard is collapsed */
+    .bg-container.collapsed {
+      left:0;
+    }
+    
+    /* Transition for content visibility */
+    .content-bg-container {
+      transition: opacity 0.3s ease-in-out;
+    }
+    
+    /* Initial state when content is not yet visible */
+    .content-hidden {
+      opacity: 0;
+    }
+    
+    /* State when content is fully visible */
+    .content-visible {
+      opacity: 1;
+    }
+  
+    .content-bg-container.dashboard-open {
+      margin-left: 230px;
+    }
+    
+    .content-bg-container.dashboard-closed {
+      margin-left: 0;
+    }
+  
+    .main-heading{
+      color:aliceblue;
+    }
+    
+    .dashboard-btn{
+      background-color: transparent;
+      width:25px;
+      border:none;
+      
+  
+    }
+  
+    .arrow-mark{
+      color:aliceblue;
+      font-size: 18px;
+    }
+  
+   
+  }
+  
+  

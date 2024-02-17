@@ -1,45 +1,42 @@
-.otp-bg-container{
+.otp-bg-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: #ffffff;
     border-radius: 10px;
-    padding:10px;
-    
-}
-
-.digit-group {
-    input {
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        background-color: #ffffff;
-        line-height: 50px;
-        text-align: center;
-        font-size: 24px;
-        font-family: 'Raleway', sans-serif;
-        font-weight: 200;
-        color: black;
-        margin: 0 2px;
-        outline: none;
-        border: 1px solid #000000;
-       
-    }
-
-    .splitter {
-        padding: 0 5px;
-        color: black;
-        font-size: 24px;
-    }
-}
-
-.prompt {
+    padding: 10px;
+    margin-top: 200px;
+  }
+  
+  .digit-group input {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    color: black;
+    margin: 0 2px;
+    outline: none;
+    border: 1px solid #000000;
+  }
+  
+  .digit-group .splitter {
+    padding: 0 5px;
+    color: black;
+    font-size: 24px;
+  }
+  
+  .prompt {
     margin-bottom: 20px;
     font-size: 15px;
     color: white;
-}
-
-.verify-otp-btn{
+  }
+  
+  .verify-otp-btn {
     margin-top: 25px;
     width: 170px;
     background-color: #7241cc;
@@ -48,13 +45,11 @@
     border: none;
     padding: 9px 0;
     cursor: pointer;
-    pointer-events: none;
     border-radius: 5px;
-    margin-right:10px;
-
-}
-
-.Royal{
+    margin-right: 10px;
+  }
+  
+  .Royal {
     margin-top: 25px;
     width: 170px;
     background-color: #7241cc;
@@ -63,16 +58,15 @@
     border: none;
     padding: 9px 0;
     cursor: pointer;
-    pointer-events: none;
     border-radius: 5px;
-}
-
-.shield-icon{
+  }
+  
+  .shield-icon {
     align-self: center;
-    font-size:30px;
-}
-
-.otp-header{
+    font-size: 30px;
+  }
+  
+  .otp-header {
     height: 65px;
     width: 65px;
     background-color: #7241cc;
@@ -83,11 +77,11 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-}
-
-.otp-main-heading{
+  }
+  
+  .otp-main-heading {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;;
+    font-size: 20px;
     margin-bottom: 10px;
-}
-
+  }
+  

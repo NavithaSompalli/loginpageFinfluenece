@@ -1,6 +1,15 @@
+.section-bg-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+   background-size: cover;
+}
+
 .password-bg-container{
-    height: 130%;
-    width:100%;
+    height: 80vh;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -11,6 +20,8 @@
     background-color: #7241cc;
     background: linear-gradient(to right, #561159, #7241cc);
     padding-bottom: 0px;
+    margin-top: 80px;
+    padding: 10px;
 }
 
 .create-password-main-heading{

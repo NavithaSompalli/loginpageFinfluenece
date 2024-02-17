@@ -28,6 +28,7 @@ class ProfilePage extends Component{
     const {imageEl}= this.state
 
     return(
+        <div className="section-bg-container">
         <div className="profile-bg-container">
             <div class="profile-container">
                 <img className="profile-image" id="profileImage" src={imageEl} alt="profile"/><br />
@@ -57,6 +58,7 @@ class ProfilePage extends Component{
             <button type="button" className="back-btn-profile">Back</button>
             <button type="button" className="back-btn-profile">Next</button>
           </div>
+        </div>
         </div>
     )
    }

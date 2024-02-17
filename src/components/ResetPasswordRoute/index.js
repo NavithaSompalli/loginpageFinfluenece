@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 import { FaEyeSlash } from "react-icons/fa";
 
@@ -46,13 +46,41 @@ const ResetPassword = () => {
     
   }
 
+ const onSubmitResetPassword = async(event) =>{
+    event.preventDefault()
+    console.log(password,confirmPassword)
+    const data = {password,confirmPassword}
+    const forgotApi = 'http://127.0.0.1:8001/forgot-password';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+    }
+    try{
+        const response = await fetch(forgotApi, options) 
+        if(response.status === 200){
+            console.log("Password Updated successful. Redirecting in 2 seconds...");
+            setTimeout(function () {
+                window.location.href = "onboard.html";
+            }, 2000); 
+        }else{
+            throw new Error('Password Update failed'); 
+        }
+        }catch(error){
+        console.log("wrong credentials");
+    }   
+    }
+
+
  
   return (
+    <section className='section-bg-container'>
     <div className='password-bg-container'>
-      
       <h2 className='create-password-main-heading'>Create New Password</h2>
       <p className='description'>Your password must be different from previous used passwords.</p>
-      <form className='form-password-container'>
+      <form className='form-password-container' onSubmit={onSubmitResetPassword}>
         <div className='password-input-container'>
             <label className='label-input-element'>New Password:</label>
             <div className='reset-password-input-element-container'>
@@ -71,8 +99,9 @@ const ResetPassword = () => {
       </div>
       <button type="submit" className='reset-button-password'>Reset password</button>
       </form>
-      <Link to='/login'><button type="button" className='back-btn'> <FaArrowLeft className='arrow'/>Back to Login</button></Link>
+      <button type="button" className='back-btn'> <FaArrowLeft className='arrow'/>Back to Login</button>
     </div>
+    </section>
   );
 };
 

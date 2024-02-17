@@ -14,6 +14,7 @@ const ForgotPassword = () => {
 
  
   return (
+    <div className='section-bg-container'>
     <div className='forgot-bg-container'>
       <h2 className='forgot-mainheading'>Forgot Password</h2>
       <p className='head-line'>No worries, we will send you reset instructions</p>
@@ -25,6 +26,7 @@ const ForgotPassword = () => {
       </div>
       </div>
       <Link to="reset" className='reset-button'>Send instructions</Link>
+    </div>
     </div>
   );
 };

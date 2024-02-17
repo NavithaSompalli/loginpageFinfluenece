@@ -10,12 +10,17 @@ body {
     background-color: #000000;
     background-color: #101624;
    /* background-image: linear-gradient(to right,#000000, #ababba); */
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
-    height: 100vh;
+  
+    
 }
+.login-bg-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 
 .container {
     background-color: #fff;
@@ -26,6 +31,8 @@ body {
     width: 768px;
     max-width: 100%;
     min-height: 480px;
+    align-self: center;
+    top:80px;
 }
 
 .container p {

@@ -3,6 +3,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import './index.css'
 
 const TwoStepVerification = () =>(
+    <div className="section-bg-container">
     <div className="verification-container">
         <div>
         <div className='back-container'>
@@ -24,6 +25,7 @@ const TwoStepVerification = () =>(
             <button type="button" className='skip-button'>Skip</button>
             <button type="button" className='skip-button'>Next</button>
         </div>
+    </div>
     </div>
 )
 
